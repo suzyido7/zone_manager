@@ -1,7 +1,9 @@
 from flask import Flask
+from flask_cors import CORS
 import controller.zone_controller as zone_controller
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/zone', methods=['POST'])
 def create_zone():
