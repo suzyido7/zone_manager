@@ -21,10 +21,8 @@ def get_zones():
         zones = list(reader(csvfile))
         if len(zones) == 0:
             return []
-    response = jsonify([transform_zone(item) for item in zones])
-    response.headers.add("Access-Control-Allow-Origin", "*")
 
-    return response
+    return [transform_zone(item) for item in zones]
 
 def delete_zone(zone):
     is_zone_found = False
