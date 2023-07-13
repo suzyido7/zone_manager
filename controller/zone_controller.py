@@ -1,7 +1,7 @@
 import uuid
 import os
 import json
-from flask import request
+from flask import request, jsonify
 from csv import writer, reader, DictReader, DictWriter
 from config import filename, tempfilename, fields
 
@@ -21,8 +21,10 @@ def get_zones():
         zones = list(reader(csvfile))
         if len(zones) == 0:
             return []
+    response = jsonify([transform_zone(item) for item in zones])
+    response.headers.add("Access-Control-Allow-Origin", "*")
 
-    return [transform_zone(item) for item in zones]
+    return response
 
 def delete_zone(zone):
     is_zone_found = False
