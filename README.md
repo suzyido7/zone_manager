@@ -16,4 +16,5 @@ example for a zone:
 the project is using flask which needs to be installed
 ```bash
 pip install Flask
+pip install flask-cors
 ```
