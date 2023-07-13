@@ -10,7 +10,6 @@ def create_zone():
     with open(filename, 'a', newline='') as f_object:
         writer_object = writer(f_object)
         writer_object.writerow([zone_id, request.json[fields[1]], request.json[fields[2]]])
-        f_object.close()
     return {"id": str(zone_id)}
 
 def transform_zone(zone):
@@ -19,8 +18,6 @@ def transform_zone(zone):
 def get_zones():
     with open(filename, newline='') as csvfile:
         zones = list(reader(csvfile))
-        if len(zones) == 0:
-            return []
 
     return [transform_zone(item) for item in zones]
 
@@ -36,7 +33,6 @@ def delete_zone(zone):
                 is_zone_found = True
                 continue
             writer.writerow(row)
-    csvfile.close()
     os.remove(filename)
     os.rename(tempfilename, filename)
 
