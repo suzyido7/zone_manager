@@ -13,7 +13,8 @@ example for a zone:
 ```
 
 ## Installation
-the project is using flask which needs to be installed
+create a new venv and copy all the files and folders there.
+the project is using flask which needs to be installed:
 ```bash
 pip install Flask
 pip install flask-cors
