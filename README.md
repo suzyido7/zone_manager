@@ -23,3 +23,4 @@ pip install flask-cors
 ```bash
 python app.py
 ```
+4. the server will be listening on port 5000
